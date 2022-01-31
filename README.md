@@ -54,3 +54,15 @@ kubectl get nodes
 NAME            STATUS   ROLES    AGE     VERSION
 default-ukmhn   Ready    <none>   5m22s   v1.21.9
 ```
+
+## Automation
+
+Automation via Github Actions has purposefully been left out of this repository,
+as 
+
+1. It's pretty easy to achieve, and 
+2. As this is a training repository, I don't want to manage secrets and keep them safe in Github. I'd rather spend my time on additional content.
+
+If you would like some instructions on how to use Github Action to automate Terraform, here are a couple tutorials:
+* https://learn.hashicorp.com/tutorials/terraform/github-actions
+* https://github.com/hashicorp/setup-terraform 
