@@ -26,3 +26,31 @@ To create the infrastructure necessary
 terraform int
 terraform apply 
 ```
+
+The Kubernetes cluster can take about 10 minutes to spin up. 
+
+This is quite normal considering what actually needs to happen for a Kubernetes cluster to start up and function correctly.
+
+## Connecting to the Kubernetes cluster
+
+In order to connect to the Kubernetes cluster, you need a local Kubernetes config.
+
+You can get this either by going to the DigitalOcean UI and downloading the kubeconfig, 
+or by using doctl 
+
+```bash
+doctl kubernetes cluster list
+ID                                      Name           Region    Version        Auto Upgrade    Status     Node Pools
+2b789472-36ba-4b2e-a8d0-e03c970a1ab0    titanic-api    fra1      1.21.9-do.0    true            running    default
+
+# Copy the ID of the correct Kubernetes cluster
+doctl kubernetes cluster kubeconfig save XXX # Replace XXX with cluster ID copied above
+```
+
+You should now be able to connect to kubernetes
+
+```bash
+kubectl get nodes
+NAME            STATUS   ROLES    AGE     VERSION
+default-ukmhn   Ready    <none>   5m22s   v1.21.9
+```
